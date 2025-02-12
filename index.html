@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wεl©o₥ε</title>
+    <style>
+        body {
+            background-color: none;
+            background-image: url(ressourses/164619950-grain-noir-et-blanc-bruit-de-fond-texture-e╠üclaboussure-motif-grunge-en-de╠ütresse-fond-de.jpg);
+            font-family: "Tahoma", sans-serif;
+        }
+
+        .popup {
+            width: 250px;
+            border: 3px solid #000080;
+            background-color: #ece9d8;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .popup-header {
+            background: linear-gradient(to right, #000080, #4a82d1);
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popup-header span {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        .popup-body img {
+            width: 100%;
+            height: auto;
+        }
+
+        .popup-footer {
+            text-align: right;
+            padding: 5px;
+        }
+
+        .btn-download {
+            background-color: #d4d0c8;
+            border: 1px solid #808080;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+
+        .btn-download:active {
+            border-style: inset;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CONNARD -->
+<audio id="downloadSound" src="Panic Alarm Sound Effect.mp3"></audio>
+
+<script>
+    function createPopup(id, gifUrl) {
+        let popup = document.createElement("div");
+        popup.className = "popup";
+        popup.style.top = Math.random() * (window.innerHeight - 150) + "px";
+        popup.style.left = Math.random() * (window.innerWidth - 250) + "px";
+
+        popup.innerHTML = `
+            <div class="popup-header">
+                Error <span onclick="this.parentElement.parentElement.remove()">✖</span>
+            </div>
+            <div class="popup-body">
+                <img src="${gifUrl}" alt="Glitch">
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+    }
+
+    function playSoundAndDownload() {
+        let sound = document.getElementById("downloadSound");
+        sound.play();
+    }
+
+    function createFinalPopup() {
+        let popup = document.createElement("div");
+        popup.className = "popup";
+        popup.style.top = Math.random() * (window.innerHeight - 150) + "px";
+        popup.style.left = Math.random() * (window.innerWidth - 250) + "px";
+
+        popup.innerHTML = `
+            <div class="popup-header">
+                Critical Error <span onclick="this.parentElement.parentElement.remove()">✖</span>
+            </div>
+            <div class="popup-body">
+                <p>Fιchιεr ç0rrµpµ dεtεctεd. TεlεchΔrgεmεnt nεçεssαιrε.</p>
+            </div>
+            <div class="popup-footer">
+                <a href="Dossier/0corruptlog55-404.zip" download>
+                    <button class="btn-download">Télécharger</button>
+                </a>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+    }
+
+    function launchPopups() {
+        let gifs = [
+        "ressourses/art death GIF by XCOPY.gif", "ressourses/dark darkness GIF.gif", "ressourses/GIF by XCOPY.gif", "ressourses/horror disturbing GIF.gif", "ressourses/art death GIF by XCOPY.gif",
+            "ressourses/dark darkness GIF.gif", "ressourses/GIF by XCOPY.gif", "ressourses/horror disturbing GIF.gif", "ressourses/art death GIF by XCOPY.gif", "ressourses/dark darkness GIF.gif",
+            "ressourses/GIF by XCOPY.gif", "ressourses/horror disturbing GIF.gif", "ressourses/art death GIF by XCOPY.gif", "ressourses/dark darkness GIF.gif", "ressourses/GIF by XCOPY.gif",
+            "ressourses/horror disturbing GIF.gif", "ressourses/art death GIF by XCOPY.gif", "ressourses/horror disturbing GIF.gif", "ressourses/art death GIF by XCOPY.gif"
+        ];
+
+        gifs.forEach((gif, index) => {
+            setTimeout(() => createPopup(index, gif), index * 500);
+        });
+
+        setTimeout(createFinalPopup, 10000);
+    }
+
+    window.onload = launchPopups;
+</script>
+
+</body>
+</html>
